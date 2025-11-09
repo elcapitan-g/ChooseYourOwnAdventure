@@ -137,8 +137,8 @@ function handleEncounter(encounter) {
   switch (encounter) {
     case "school of tuna":
       display("You catch a massive tuna. Everyone will be jealous of this catch!", [
-        { text: "Surface with your catch", action: surfaceAfterDive },
-        { text: "Continue diving", action: diveDeeper }
+        { text: "Leave the school of tuna", action: surfaceAfterDive },
+        { text: "Follow the school of tuna", action: diveDeeper }
       ]);
       break;
     case "giant manta ray":
@@ -174,7 +174,7 @@ function deepMantaAdventure() {
 // =====================
 function exploreReef() {
   removeTensionEffects();
-  const creatures = ["turtle", "eel", "parrotfish", "octopus", "puffer fish", "needle fish", "angel fish", "trumpet fish"];
+  const creatures = ["turtle", "octopus", "and lots of colorful reef fish"];
   const interesting = creatures.filter(c => c.length > 5);
 
   display(`Swimming over the reef, you spot: ${interesting.join(", ")}`, [
@@ -214,13 +214,13 @@ function stayNearBoat() {
 // =====================
 function sharkEncounter() {
   addTensionEffects();
-  const sharkTypes = ["tiger shark", "oceanic whitetip", "great white shark"];
+  const sharkTypes = ["tiger shark", "oceanic whitetip", "great white"];
   const shark = _.sample(sharkTypes);
 
   display(`A ${shark} circles nearby. What do you do?`, [
     { text: "Fight the shark", action: () => {
         removeTensionEffects();
-        display("You attempt to fight the shark with your spear. You've seen enough instagram videos to know sharks are like puppy dogs... Unfortunately instagram is not reliable source, and the shark devours you piece by piece. You did not survive... ", [{ text: "Accept your fate", action: restartAdventure }]);
+        display("You attempt to fight the shark with your spear. You've seen enough instagram videos to know sharks are like puppy dogs... Unfortunately you relied too much on social media. and the shark devours you. piece by piece. You did not survive... ", [{ text: "Accept your fate", action: restartAdventure }]);
       }
     },
     { text: "Swim away", action: driftOutToSea }
@@ -235,7 +235,7 @@ function driftOutToSea() {
       { text: "Accept your fate", action: () => { removeTensionEffects(); restartAdventure(); } }
     ]);
   } else {
-    display(`The current carries you ${distance} miles, but the island is visible`, [
+    display(`The current carries you ${distance} miles, but the island is still visible`, [
       { text: "Swim to land", action: () => { removeTensionEffects(); landRescue(); } },
       { text: "Wait for rescue", action: () => display("A passing boat ignores you despite your best efforts of trying to get its attention. You then realize you will not be making it home tonight, or ever for that matter. You did not survive...", [{ text: "Accept your fate", action: () => { removeTensionEffects(); restartAdventure(); } }]) }
     ]);
