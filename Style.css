@@ -1,0 +1,109 @@
+/* Full-page body setup */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #1e3c72, #2a5298); /* deep ocean feel */
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Story container */
+#story {
+  max-width: 700px;
+  padding: 20px;
+  background: rgba(0, 0, 50, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Paragraphs */
+#story p {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  opacity: 0;
+}
+
+/* Buttons */
+#story button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  background: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: transform 0.2s, background 0.2s;
+}
+
+/* Button hover effects */
+#story button:hover {
+  background: #357abd;
+  transform: scale(1.05);
+}
+
+/* Fade-in animation for text and buttons */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shake effect for danger events */
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Background pulse for tension */
+@keyframes pulseBackground {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 50% 50%; }
+  100% { background-position: 0% 0%; }
+}
+
+body.pulse {
+  animation: pulseBackground 2s infinite alternate;
+}
+
+/* Pulsing effect for text and buttons during danger */
+.pulse-text {
+  animation: pulseText 1s infinite alternate;
+}
+
+.pulse-button {
+  animation: pulseButton 1s infinite alternate;
+}
+
+@keyframes pulseText {
+  0% { color: #ffffff; text-shadow: 0 0 2px #ffffff; }
+  50% { color: #ffcccc; text-shadow: 0 0 10px #ff6666; }
+  100% { color: #ffffff; text-shadow: 0 0 2px #ffffff; }
+}
+
+@keyframes pulseButton {
+  0% { background: #4a90e2; transform: scale(1); }
+  50% { background: #ff4d4d; transform: scale(1.05); }
+  100% { background: #4a90e2; transform: scale(1); }
+}
