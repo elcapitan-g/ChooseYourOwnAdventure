@@ -6,12 +6,13 @@ I wrote a browser-based **Spearfishing Adventure Game** where players make choic
 
 The purpose of writing this software was to practice:  
 - Displaying output to the screen using the DOM  
-- ES6 array methods (`forEach`, `filter`, `join`)  
+- ES6 array methods  
 - Recursion through function calls to manage adventure flow  
 - Using an external library (Lodash)  
 - Creating styled DOM structures with CSS for visual effects
 
-[Software Demo Video](#)
+[Software Demo Video](https://youtu.be/4KOFpV5htPM)
+
 
 # Development Environment
 
